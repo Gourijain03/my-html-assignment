@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Computer Fundamentals | Gouri Jain | BPT 1st Year</title>
+<style>
+  :root {
+    --ink:#17233b; --muted:#5b6880; --paper:#f5f7fb; --card:#ffffff;
+    --line:#dce4f0; --blue:#3568d4; --teal:#078a87; --purple:#7652c8;
+    --orange:#d87925; --pink:#c44e83;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.5}
+  .page{max-width:1120px;margin:auto;padding:28px 22px 50px}
+  header{background:linear-gradient(130deg,#17233b,#284f91 65%,#078a87);color:#fff;border-radius:24px;padding:34px 32px;margin-bottom:24px;position:relative;overflow:hidden}
+  header:after{content:"01  02  03";position:absolute;right:18px;bottom:-20px;font-size:clamp(42px,9vw,100px);font-weight:900;letter-spacing:5px;color:#ffffff12}
+  .eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:2px;font-weight:800;color:#bcece9}
+  h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.08;margin:10px 0}
+  header p{max-width:720px;color:#e3ecff;margin:10px 0 0}
+  .section{margin:26px 0}
+  .section-head{display:flex;gap:12px;align-items:center;margin:0 0 14px}
+  .num{display:grid;place-items:center;min-width:40px;height:40px;border-radius:13px;background:#e3ebff;color:var(--blue);font-weight:900}
+  h2{font-size:1.45rem;margin:0}
+  .sub{color:var(--muted);margin:4px 0 16px}
+  .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 5px 18px #1b31500a}
+  .icon{height:48px;width:48px;border-radius:15px;display:grid;place-items:center;font-size:1.55rem;margin-bottom:12px}
+  .blue{background:#e8efff}.teal{background:#dff7f2}.purple{background:#efe8ff}.orange{background:#fff0df}.pink{background:#ffe8f1}
+  .card h3{font-size:1.04rem;margin:0 0 7px}
+  .card p{font-size:.92rem;color:var(--muted);margin:0}
+  .tag{display:inline-block;margin-top:12px;font-size:.75rem;font-weight:800;padding:4px 8px;border-radius:999px;background:#f0f3f9;color:#394963}
+  .timeline{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;position:relative}
+  .gen{position:relative;border-top:5px solid var(--accent);padding-top:14px}
+  .gen .era{font-size:.78rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.6px}
+  .gen h3{margin:5px 0 8px;font-size:1.08rem}
+  .gen .chip{display:inline-block;background:var(--tint);color:var(--accent);font-size:.76rem;font-weight:800;border-radius:8px;padding:5px 8px;margin:2px 0 9px}
+  .gen p{font-size:.88rem;color:var(--muted);margin:0}
+  .mini{margin-top:12px;border-radius:12px;background:var(--tint);padding:11px;font-size:.82rem}
+  .mini b{display:block;color:var(--accent);margin-bottom:3px}
+  .memory{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .compare{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+  .compare h3{margin:0 0 12px}
+  .rowline{display:flex;gap:12px;align-items:flex-start;margin:10px 0}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:7px;flex-shrink:0}
+  .exam{background:#17233b;color:#fff;border-radius:20px;padding:22px 24px;margin-top:25px}
+  .exam h2{margin-bottom:8px}
+  .exam p{color:#dbe6fb;margin:6px 0}
+  .answer{background:#ffffff12;border:1px solid #ffffff25;border-radius:14px;padding:15px;margin-top:13px}
+  .answer strong{color:#a9eee5}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:22px}
+  .actions{display:flex;justify-content:flex-end;margin-bottom:12px}
+  button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;border-radius:10px;font-weight:700;cursor:pointer}
+  button:hover{background:#edf3ff}
+  @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.timeline{grid-template-columns:repeat(2,minmax(0,1fr))}.gen:last-child{grid-column:span 2}}
+  @media(max-width:520px){.page{padding:16px 12px 30px}header{padding:25px 20px}.grid,.timeline,.memory{grid-template-columns:1fr}.gen:last-child{grid-column:auto}.card{padding:16px}}
+  @media print{body{background:#fff}.page{max-width:none;padding:0}.actions{display:none}header,.exam{print-color-adjust:exact;-webkit-print-color-adjust:exact}.card,.compare{break-inside:avoid;box-shadow:none}.section{break-inside:avoid}}
+
+
+
+:root{--ink:#18243b;--muted:#5b6880;--paper:#f4f7fc;--line:#dce5f1;--blue:#3768d4;--teal:#078b85;--purple:#7853c8;--orange:#d47a27;--pink:#c44e83}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,Segoe UI,Arial,sans-serif}.page{max-width:1050px;margin:auto;padding:24px 20px 44px}
+header{background:linear-gradient(130deg,#18243b,#2d5498 65%,#078b85);color:#fff;border-radius:22px;padding:30px;margin-bottom:22px}header .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.76rem;color:#bcece9;font-weight:800}h1{font-size:clamp(1.9rem,5vw,3rem);line-height:1.12;margin:8px 0}header p{color:#e2ebff;margin:0;max-width:800px}
+.toolbar{display:flex;justify-content:flex-end;margin-bottom:12px}button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:750;cursor:pointer}
+h2{font-size:1.35rem;margin:0 0 12px}.section{margin:25px 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card,.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 5px 18px #1b315008;min-width:0}.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;font-size:1.5rem;margin-bottom:10px}.b{background:#e8efff}.t{background:#ddf7f2}.p{background:#efe8ff}.o{background:#fff0df}.r{background:#ffe8f1}
+h3{font-size:1.03rem;margin:0 0 7px}.card p,.panel p{font-size:.92rem;color:var(--muted);margin:0}.tag{display:inline-block;margin-top:10px;padding:4px 8px;border-radius:8px;background:#f0f3f9;color:#394963;font-size:.76rem;font-weight:800}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:14px 0}.step{flex:1 1 125px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px;text-align:center;font-weight:750}.arrow{display:grid;place-items:center;color:var(--blue);font-size:1.35rem;font-weight:900}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.line{display:flex;gap:10px;margin:10px 0;align-items:flex-start}.bullet{width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:7px;flex-shrink:0}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:15px}table{width:100%;border-collapse:collapse;min-width:580px}th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.9rem}th{background:#eaf0fb;color:#263c66}tr:last-child td{border-bottom:0}
+.note{background:#eef7ff;border-left:4px solid var(--blue);padding:13px 15px;border-radius:10px;color:#314461;margin-top:14px;font-size:.91rem}
+.exam{background:#18243b;color:#fff;border-radius:18px;padding:21px;margin-top:24px}.exam p{color:#dce6fa;margin:7px 0}.answer{background:#ffffff12;border:1px solid #ffffff24;border-radius:12px;padding:14px;margin-top:10px}.answer strong{color:#a9eee5}footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:22px}
+@media(max-width:780px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.two,.compare{grid-template-columns:1fr}}
+@media(max-width:520px){.page{padding:14px 10px 28px}header{padding:23px 18px}.grid,.grid.two,.compare{grid-template-columns:1fr}.card,.panel{padding:15px}}
+@media print{body{background:#fff}.page{max-width:none;padding:0}.toolbar{display:none}header,.exam{print-color-adjust:exact;-webkit-print-color-adjust:exact}.card,.panel{break-inside:avoid;box-shadow:none}}
+
+
+
+:root{--ink:#18243b;--muted:#5b6880;--paper:#f4f7fc;--line:#dce5f1;--blue:#3768d4;--teal:#078b85;--purple:#7853c8;--orange:#d47a27;--pink:#c44e83}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,Segoe UI,Arial,sans-serif}.page{max-width:1050px;margin:auto;padding:24px 20px 44px}
+header{background:linear-gradient(130deg,#18243b,#2d5498 65%,#078b85);color:#fff;border-radius:22px;padding:30px;margin-bottom:22px}header .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.76rem;color:#bcece9;font-weight:800}h1{font-size:clamp(1.9rem,5vw,3rem);line-height:1.12;margin:8px 0}header p{color:#e2ebff;margin:0;max-width:800px}
+.toolbar{display:flex;justify-content:flex-end;margin-bottom:12px}button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:750;cursor:pointer}
+h2{font-size:1.35rem;margin:0 0 12px}.section{margin:25px 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card,.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 5px 18px #1b315008;min-width:0}.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;font-size:1.5rem;margin-bottom:10px}.b{background:#e8efff}.t{background:#ddf7f2}.p{background:#efe8ff}.o{background:#fff0df}.r{background:#ffe8f1}
+h3{font-size:1.03rem;margin:0 0 7px}.card p,.panel p{font-size:.92rem;color:var(--muted);margin:0}.tag{display:inline-block;margin-top:10px;padding:4px 8px;border-radius:8px;background:#f0f3f9;color:#394963;font-size:.76rem;font-weight:800}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:14px 0}.step{flex:1 1 125px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px;text-align:center;font-weight:750}.arrow{display:grid;place-items:center;color:var(--blue);font-size:1.35rem;font-weight:900}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.line{display:flex;gap:10px;margin:10px 0;align-items:flex-start}.bullet{width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:7px;flex-shrink:0}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:15px}table{width:100%;border-collapse:collapse;min-width:580px}th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.9rem}th{background:#eaf0fb;color:#263c66}tr:last-child td{border-bottom:0}
+.note{background:#eef7ff;border-left:4px solid var(--blue);padding:13px 15px;border-radius:10px;color:#314461;margin-top:14px;font-size:.91rem}
+.exam{background:#18243b;color:#fff;border-radius:18px;padding:21px;margin-top:24px}.exam p{color:#dce6fa;margin:7px 0}.answer{background:#ffffff12;border:1px solid #ffffff24;border-radius:12px;padding:14px;margin-top:10px}.answer strong{color:#a9eee5}footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:22px}
+@media(max-width:780px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.two,.compare{grid-template-columns:1fr}}
+@media(max-width:520px){.page{padding:14px 10px 28px}header{padding:23px 18px}.grid,.grid.two,.compare{grid-template-columns:1fr}.card,.panel{padding:15px}}
+@media print{body{background:#fff}.page{max-width:none;padding:0}.toolbar{display:none}header,.exam{print-color-adjust:exact;-webkit-print-color-adjust:exact}.card,.panel{break-inside:avoid;box-shadow:none}}
+
+
+
+:root{--ink:#18243b;--muted:#5b6880;--paper:#f4f7fc;--line:#dce5f1;--blue:#3768d4;--teal:#078b85;--purple:#7853c8;--orange:#d47a27;--pink:#c44e83}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,Segoe UI,Arial,sans-serif}.page{max-width:1050px;margin:auto;padding:24px 20px 44px}
+header{background:linear-gradient(130deg,#18243b,#2d5498 65%,#078b85);color:#fff;border-radius:22px;padding:30px;margin-bottom:22px}header .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.76rem;color:#bcece9;font-weight:800}h1{font-size:clamp(1.9rem,5vw,3rem);line-height:1.12;margin:8px 0}header p{color:#e2ebff;margin:0;max-width:800px}
+.toolbar{display:flex;justify-content:flex-end;margin-bottom:12px}button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:750;cursor:pointer}
+h2{font-size:1.35rem;margin:0 0 12px}.section{margin:25px 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card,.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 5px 18px #1b315008;min-width:0}.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;font-size:1.5rem;margin-bottom:10px}.b{background:#e8efff}.t{background:#ddf7f2}.p{background:#efe8ff}.o{background:#fff0df}.r{background:#ffe8f1}
+h3{font-size:1.03rem;margin:0 0 7px}.card p,.panel p{font-size:.92rem;color:var(--muted);margin:0}.tag{display:inline-block;margin-top:10px;padding:4px 8px;border-radius:8px;background:#f0f3f9;color:#394963;font-size:.76rem;font-weight:800}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:14px 0}.step{flex:1 1 125px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px;text-align:center;font-weight:750}.arrow{display:grid;place-items:center;color:var(--blue);font-size:1.35rem;font-weight:900}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.line{display:flex;gap:10px;margin:10px 0;align-items:flex-start}.bullet{width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:7px;flex-shrink:0}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:15px}table{width:100%;border-collapse:collapse;min-width:580px}th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.9rem}th{background:#eaf0fb;color:#263c66}tr:last-child td{border-bottom:0}
+.note{background:#eef7ff;border-left:4px solid var(--blue);padding:13px 15px;border-radius:10px;color:#314461;margin-top:14px;font-size:.91rem}
+.exam{background:#18243b;color:#fff;border-radius:18px;padding:21px;margin-top:24px}.exam p{color:#dce6fa;margin:7px 0}.answer{background:#ffffff12;border:1px solid #ffffff24;border-radius:12px;padding:14px;margin-top:10px}.answer strong{color:#a9eee5}footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:22px}
+@media(max-width:780px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.two,.compare{grid-template-columns:1fr}}
+@media(max-width:520px){.page{padding:14px 10px 28px}header{padding:23px 18px}.grid,.grid.two,.compare{grid-template-columns:1fr}.card,.panel{padding:15px}}
+@media print{body{background:#fff}.page{max-width:none;padding:0}.toolbar{display:none}header,.exam{print-color-adjust:exact;-webkit-print-color-adjust:exact}.card,.panel{break-inside:avoid;box-shadow:none}}
+
+
+
+:root{--ink:#18243b;--muted:#5b6880;--paper:#f4f7fc;--line:#dce5f1;--blue:#3768d4;--teal:#078b85;--purple:#7853c8;--orange:#d47a27;--pink:#c44e83}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,Segoe UI,Arial,sans-serif}.page{max-width:1050px;margin:auto;padding:24px 20px 44px}
+header{background:linear-gradient(130deg,#18243b,#2d5498 65%,#078b85);color:#fff;border-radius:22px;padding:30px;margin-bottom:22px}header .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.76rem;color:#bcece9;font-weight:800}h1{font-size:clamp(1.9rem,5vw,3rem);line-height:1.12;margin:8px 0}header p{color:#e2ebff;margin:0;max-width:800px}
+.toolbar{display:flex;justify-content:flex-end;margin-bottom:12px}button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:750;cursor:pointer}
+h2{font-size:1.35rem;margin:0 0 12px}.section{margin:25px 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card,.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 5px 18px #1b315008;min-width:0}.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;font-size:1.5rem;margin-bottom:10px}.b{background:#e8efff}.t{background:#ddf7f2}.p{background:#efe8ff}.o{background:#fff0df}.r{background:#ffe8f1}
+h3{font-size:1.03rem;margin:0 0 7px}.card p,.panel p{font-size:.92rem;color:var(--muted);margin:0}.tag{display:inline-block;margin-top:10px;padding:4px 8px;border-radius:8px;background:#f0f3f9;color:#394963;font-size:.76rem;font-weight:800}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:14px 0}.step{flex:1 1 125px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px;text-align:center;font-weight:750}.arrow{display:grid;place-items:center;color:var(--blue);font-size:1.35rem;font-weight:900}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.line{display:flex;gap:10px;margin:10px 0;align-items:flex-start}.bullet{width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:7px;flex-shrink:0}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:15px}table{width:100%;border-collapse:collapse;min-width:580px}th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.9rem}th{background:#eaf0fb;color:#263c66}tr:last-child td{border-bottom:0}
+.note{background:#eef7ff;border-left:4px solid var(--blue);padding:13px 15px;border-radius:10px;color:#314461;margin-top:14px;font-size:.91rem}
+.exam{background:#18243b;color:#fff;border-radius:18px;padding:21px;margin-top:24px}.exam p{color:#dce6fa;margin:7px 0}.answer{background:#ffffff12;border:1px solid #ffffff24;border-radius:12px;padding:14px;margin-top:10px}.answer strong{color:#a9eee5}footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:22px}
+@media(max-width:780px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.two,.compare{grid-template-columns:1fr}}
+@media(max-width:520px){.page{padding:14px 10px 28px}header{padding:23px 18px}.grid,.grid.two,.compare{grid-template-columns:1fr}.card,.panel{padding:15px}}
+@media print{body{background:#fff}.page{max-width:none;padding:0}.toolbar{display:none}header,.exam{print-color-adjust:exact;-webkit-print-color-adjust:exact}.card,.panel{break-inside:avoid;box-shadow:none}}
+
+
+
+:root{--ink:#18243b;--muted:#5b6880;--paper:#f4f7fc;--line:#dce5f1;--blue:#3768d4;--teal:#078b85;--purple:#7853c8;--orange:#d47a27;--pink:#c44e83}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,Segoe UI,Arial,sans-serif}.page{max-width:1050px;margin:auto;padding:24px 20px 44px}
+header{background:linear-gradient(130deg,#18243b,#2d5498 65%,#078b85);color:#fff;border-radius:22px;padding:30px;margin-bottom:22px}header .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.76rem;color:#bcece9;font-weight:800}h1{font-size:clamp(1.9rem,5vw,3rem);line-height:1.12;margin:8px 0}header p{color:#e2ebff;margin:0;max-width:800px}
+.toolbar{display:flex;justify-content:flex-end;margin-bottom:12px}button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:750;cursor:pointer}
+h2{font-size:1.35rem;margin:0 0 12px}.section{margin:25px 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card,.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 5px 18px #1b315008;min-width:0}.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;font-size:1.5rem;margin-bottom:10px}.b{background:#e8efff}.t{background:#ddf7f2}.p{background:#efe8ff}.o{background:#fff0df}.r{background:#ffe8f1}
+h3{font-size:1.03rem;margin:0 0 7px}.card p,.panel p{font-size:.92rem;color:var(--muted);margin:0}.tag{display:inline-block;margin-top:10px;padding:4px 8px;border-radius:8px;background:#f0f3f9;color:#394963;font-size:.76rem;font-weight:800}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:14px 0}.step{flex:1 1 125px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px;text-align:center;font-weight:750}.arrow{display:grid;place-items:center;color:var(--blue);font-size:1.35rem;font-weight:900}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.line{display:flex;gap:10px;margin:10px 0;align-items:flex-start}.bullet{width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:7px;flex-shrink:0}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:15px}table{width:100%;border-collapse:collapse;min-width:580px}th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.9rem}th{background:#eaf0fb;color:#263c66}tr:last-child td{border-bottom:0}
+.note{background:#eef7ff;border-left:4px solid var(--blue);padding:13px 15px;border-radius:10px;color:#314461;margin-top:14px;font-size:.91rem}
+.exam{background:#18243b;color:#fff;border-radius:18px;padding:21px;margin-top:24px}.exam p{color:#dce6fa;margin:7px 0}.answer{background:#ffffff12;border:1px solid #ffffff24;border-radius:12px;padding:14px;margin-top:10px}.answer strong{color:#a9eee5}footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:22px}
+@media(max-width:780px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.two,.compare{grid-template-columns:1fr}}
+@media(max-width:520px){.page{padding:14px 10px 28px}header{padding:23px 18px}.grid,.grid.two,.compare{grid-template-columns:1fr}.card,.panel{padding:15px}}
+@media print{body{background:#fff}.page{max-width:none;padding:0}.toolbar{display:none}header,.exam{print-color-adjust:exact;-webkit-print-color-adjust:exact}.card,.panel{break-inside:avoid;box-shadow:none}}
+
+
+
+:root{--ink:#18243b;--muted:#5b6880;--paper:#f4f7fc;--line:#dce5f1;--blue:#3768d4;--teal:#078b85;--purple:#7853c8;--orange:#d47a27;--pink:#c44e83}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,Segoe UI,Arial,sans-serif}.page{max-width:1050px;margin:auto;padding:24px 20px 44px}
+header{background:linear-gradient(130deg,#18243b,#2d5498 65%,#078b85);color:#fff;border-radius:22px;padding:30px;margin-bottom:22px}header .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.76rem;color:#bcece9;font-weight:800}h1{font-size:clamp(1.9rem,5vw,3rem);line-height:1.12;margin:8px 0}header p{color:#e2ebff;margin:0;max-width:800px}
+.toolbar{display:flex;justify-content:flex-end;margin-bottom:12px}button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:750;cursor:pointer}
+h2{font-size:1.35rem;margin:0 0 12px}.section{margin:25px 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card,.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 5px 18px #1b315008;min-width:0}.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;font-size:1.5rem;margin-bottom:10px}.b{background:#e8efff}.t{background:#ddf7f2}.p{background:#efe8ff}.o{background:#fff0df}.r{background:#ffe8f1}
+h3{font-size:1.03rem;margin:0 0 7px}.card p,.panel p{font-size:.92rem;color:var(--muted);margin:0}.tag{display:inline-block;margin-top:10px;padding:4px 8px;border-radius:8px;background:#f0f3f9;color:#394963;font-size:.76rem;font-weight:800}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:14px 0}.step{flex:1 1 125px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px;text-align:center;font-weight:750}.arrow{display:grid;place-items:center;color:var(--blue);font-size:1.35rem;font-weight:900}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.line{display:flex;gap:10px;margin:10px 0;align-items:flex-start}.bullet{width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:7px;flex-shrink:0}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:15px}table{width:100%;border-collapse:collapse;min-width:580px}th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.9rem}th{background:#eaf0fb;color:#263c66}tr:last-child td{border-bottom:0}
+.note{background:#eef7ff;border-left:4px solid var(--blue);padding:13px 15px;border-radius:10px;color:#314461;margin-top:14px;font-size:.91rem}
+.exam{background:#18243b;color:#fff;border-radius:18px;padding:21px;margin-top:24px}.exam p{color:#dce6fa;margin:7px 0}.answer{background:#ffffff12;border:1px solid #ffffff24;border-radius:12px;padding:14px;margin-top:10px}.answer strong{color:#a9eee5}footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:22px}
+@media(max-width:780px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.two,.compare{grid-template-columns:1fr}}
+@media(max-width:520px){.page{padding:14px 10px 28px}header{padding:23px 18px}.grid,.grid.two,.compare{grid-template-columns:1fr}.card,.panel{padding:15px}}
+@media print{body{background:#fff}.page{max-width:none;padding:0}.toolbar{display:none}header,.exam{print-color-adjust:exact;-webkit-print-color-adjust:exact}.card,.panel{break-inside:avoid;box-shadow:none}}
+
+
+
+:root{--ink:#18243b;--muted:#5b6880;--paper:#f4f7fc;--line:#dce5f1;--blue:#3768d4;--teal:#078b85;--purple:#7853c8;--orange:#d47a27;--pink:#c44e83}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,Segoe UI,Arial,sans-serif}.page{max-width:1050px;margin:auto;padding:24px 20px 44px}
+header{background:linear-gradient(130deg,#18243b,#2d5498 65%,#078b85);color:#fff;border-radius:22px;padding:30px;margin-bottom:22px}header .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.76rem;color:#bcece9;font-weight:800}h1{font-size:clamp(1.9rem,5vw,3rem);line-height:1.12;margin:8px 0}header p{color:#e2ebff;margin:0;max-width:800px}
+.toolbar{display:flex;justify-content:flex-end;margin-bottom:12px}button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:750;cursor:pointer}
+h2{font-size:1.35rem;margin:0 0 12px}.section{margin:25px 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card,.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 5px 18px #1b315008;min-width:0}.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;font-size:1.5rem;margin-bottom:10px}.b{background:#e8efff}.t{background:#ddf7f2}.p{background:#efe8ff}.o{background:#fff0df}.r{background:#ffe8f1}
+h3{font-size:1.03rem;margin:0 0 7px}.card p,.panel p{font-size:.92rem;color:var(--muted);margin:0}.tag{display:inline-block;margin-top:10px;padding:4px 8px;border-radius:8px;background:#f0f3f9;color:#394963;font-size:.76rem;font-weight:800}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:14px 0}.step{flex:1 1 125px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px;text-align:center;font-weight:750}.arrow{display:grid;place-items:center;color:var(--blue);font-size:1.35rem;font-weight:900}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.line{display:flex;gap:10px;margin:10px 0;align-items:flex-start}.bullet{width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:7px;flex-shrink:0}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:15px}table{width:100%;border-collapse:collapse;min-width:580px}th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.9rem}th{background:#eaf0fb;color:#263c66}tr:last-child td{border-bottom:0}
+.note{background:#eef7ff;border-left:4px solid var(--blue);padding:13px 15px;border-radius:10px;color:#314461;margin-top:14px;font-size:.91rem}
+.exam{background:#18243b;color:#fff;border-radius:18px;padding:21px;margin-top:24px}.exam p{color:#dce6fa;margin:7px 0}.answer{background:#ffffff12;border:1px solid #ffffff24;border-radius:12px;padding:14px;margin-top:10px}.answer strong{color:#a9eee5}footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:22px}
+@media(max-width:780px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.two,.compare{grid-template-columns:1fr}}
+@media(max-width:520px){.page{padding:14px 10px 28px}header{padding:23px 18px}.grid,.grid.two,.compare{grid-template-columns:1fr}.card,.panel{padding:15px}}
+@media print{body{background:#fff}.page{max-width:none;padding:0}.toolbar{display:none}header,.exam{print-color-adjust:exact;-webkit-print-color-adjust:exact}.card,.panel{break-inside:avoid;box-shadow:none}}
+
+
+:root{--navy:#14213d;--ink:#182338;--muted:#61708a;--line:#dce4ef;--paper:#f4f7fb;--accent:#3157d5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.55}
+.page-shell{max-width:1180px;margin:0 auto;padding:24px}
+.student-card{background:linear-gradient(120deg,#14213d,#284d86);color:#fff;border-radius:20px;padding:28px 30px;box-shadow:0 12px 32px #17294a22}
+.student-card .kicker{font-size:12px;letter-spacing:.15em;text-transform:uppercase;opacity:.8;font-weight:800}
+.student-card h1{margin:8px 0 18px;font-size:clamp(25px,4vw,38px);line-height:1.15}
+.student-details{display:flex;gap:12px;flex-wrap:wrap}
+.detail-chip{padding:9px 13px;border:1px solid #ffffff50;background:#ffffff12;border-radius:10px;font-size:14px}
+.detail-chip strong{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.75;margin-bottom:2px}
+.tabs-wrap{position:sticky;top:0;z-index:20;margin:18px 0 24px;padding:10px;background:#ffffffed;backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;box-shadow:0 5px 18px #17294a0d}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px}
+.tab-btn{flex:0 0 auto;border:1px solid var(--line);background:#f7f9fc;color:#263650;border-radius:10px;padding:11px 16px;font-size:14px;font-weight:750;cursor:pointer;transition:.15s}
+.tab-btn:hover{border-color:#8ba2e9}
+.tab-btn[aria-selected="true"]{background:var(--accent);color:white;border-color:var(--accent);box-shadow:0 4px 10px #3157d52a}
+.question-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(16px,3vw,30px);box-shadow:0 8px 24px #17294a08}
+.question-panel[hidden]{display:none!important}
+.panel-heading{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:20px}
+.panel-heading .eyebrow{color:var(--accent);font-size:11px;font-weight:850;letter-spacing:.13em}
+.panel-heading h2{margin:5px 0 0;font-size:clamp(24px,3vw,34px)}
+.source-content{min-width:0}
+.source-content h1{font-size:clamp(23px,3vw,32px)}
+.source-content .container,.source-content main,.source-content .page,.source-content .wrap{max-width:100%!important;margin-left:auto!important;margin-right:auto!important}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:22px 0 4px}
+@media(max-width:640px){.page-shell{padding:12px}.student-card{padding:21px}.tabs-wrap{margin:12px 0 16px}.tab-btn{padding:10px 13px}}
+@media print{body{background:#fff}.page-shell{max-width:none;padding:0}.student-card{box-shadow:none;border-radius:0;print-color-adjust:exact;-webkit-print-color-adjust:exact}.tabs-wrap{display:none}.question-panel{display:block!important;page-break-before:always;box-shadow:none;border:0;padding:0}.question-panel[hidden]{display:block!important}footer{display:none}}
+</style>
+</head>
+<body>
+<div class="page-shell">
+  <header class="student-card">
+    <div class="kicker">Computer Fundamentals · Assignment / Study File</div>
+    <h1>Computer Fundamentals</h1>
+    <div class="student-details">
+      <div class="detail-chip"><strong>Name</strong>Gouri Jain</div>
+      <div class="detail-chip"><strong>Roll No.</strong>1826025</div>
+      <div class="detail-chip"><strong>Course</strong>BPT (1st year)</div>
+    </div>
+  </header>
+  <nav class="tabs-wrap" aria-label="Question tabs">
+    <div class="tabs" role="tablist" aria-label="Choose a question">
+      <button class="tab-btn" id="tab-q1" role="tab" aria-controls="panel-q1" aria-selected="true" tabindex="0" data-target="panel-q1">Q1</button>
+<button class="tab-btn" id="tab-q2" role="tab" aria-controls="panel-q2" aria-selected="false" tabindex="-1" data-target="panel-q2">Q2</button>
+<button class="tab-btn" id="tab-q3" role="tab" aria-controls="panel-q3" aria-selected="false" tabindex="-1" data-target="panel-q3">Q3</button>
+<button class="tab-btn" id="tab-q4" role="tab" aria-controls="panel-q4" aria-selected="false" tabindex="-1" data-target="panel-q4">Q4</button>
+<button class="tab-btn" id="tab-q5" role="tab" aria-controls="panel-q5" aria-selected="false" tabindex="-1" data-target="panel-q5">Q5</button>
+<button class="tab-btn" id="tab-q6" role="tab" aria-controls="panel-q6" aria-selected="false" tabindex="-1" data-target="panel-q6">Q6</button>
+<button class="tab-btn" id="tab-q7" role="tab" aria-controls="panel-q7" aria-selected="false" tabindex="-1" data-target="panel-q7">Q7</button>
+<button class="tab-btn" id="tab-q8" role="tab" aria-controls="panel-q8" aria-selected="false" tabindex="-1" data-target="panel-q8">Q8</button>
+    </div>
+  </nav>
+  <main>
+    
+    <section class="question-panel" id="panel-q1" role="tabpanel" aria-labelledby="tab-q1" >
+      <div class="panel-heading"><span class="eyebrow">COMPUTER FUNDAMENTALS</span><h2>Question 1</h2></div>
+      <div class="source-content">
+<div class="page">
+  <div class="actions"><button onclick="window.print()">Print / Save as PDF</button></div>
+  <header>
+    <div class="eyebrow">Computer Fundamentals • Quick Visual Notes</div>
+    <h1>Modern Digital Computers</h1>
+    <p>Four core characteristics of a computer and the key hardware technology behind each of the five generations.</p>
+  </header>
+
+  <section class="section">
+    <div class="section-head"><div class="num">01</div><div><h2>Four primary characteristics</h2><div class="sub">Remember: computers work fast, accurately, consistently, and store information.</div></div></div>
+    <div class="grid">
+      <article class="card">
+        <div class="icon blue">⚡</div><h3>1. High Speed</h3>
+        <p>A computer performs millions or billions of operations in a very short time.</p>
+        <span class="tag">Fast processing</span>
+      </article>
+      <article class="card">
+        <div class="icon teal">🎯</div><h3>2. Accuracy</h3>
+        <p>It produces highly accurate results when the data and instructions are correct.</p>
+        <span class="tag">Correct output</span>
+      </article>
+      <article class="card">
+        <div class="icon purple">🔁</div><h3>3. Diligence & Reliability</h3>
+        <p>It can repeat tasks for long periods without getting tired or losing consistency.</p>
+        <span class="tag">No human fatigue</span>
+      </article>
+      <article class="card">
+        <div class="icon orange">💾</div><h3>4. Large Storage</h3>
+        <p>It can save large amounts of data and retrieve stored information when needed.</p>
+        <span class="tag">Store & retrieve</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div class="num">02</div><div><h2>Five generations of computers</h2><div class="sub">The generations are mainly distinguished by the hardware technology used.</div></div></div>
+    <div class="timeline">
+      <article class="card gen" style="--accent:#3568d4;--tint:#e8efff">
+        <div class="era">First Generation</div><h3>Vacuum Tubes</h3><div class="chip">Approx. 1940s–1950s</div>
+        <p>Very large, hot, costly machines that consumed a lot of electricity.</p>
+        <div class="mini"><b>Examples</b>ENIAC, UNIVAC I</div>
+      </article>
+      <article class="card gen" style="--accent:#078a87;--tint:#dff7f2">
+        <div class="era">Second Generation</div><h3>Transistors</h3><div class="chip">Approx. 1950s–1960s</div>
+        <p>Smaller, faster, more reliable, and more energy-efficient than vacuum-tube systems.</p>
+        <div class="mini"><b>Key change</b>Transistors replaced vacuum tubes.</div>
+      </article>
+      <article class="card gen" style="--accent:#7652c8;--tint:#efe8ff">
+        <div class="era">Third Generation</div><h3>Integrated Circuits (ICs)</h3><div class="chip">Approx. 1960s–1970s</div>
+        <p>Many electronic components were placed together on a small silicon chip.</p>
+        <div class="mini"><b>Key change</b>Smaller size and improved performance.</div>
+      </article>
+      <article class="card gen" style="--accent:#d87925;--tint:#fff0df">
+        <div class="era">Fourth Generation</div><h3>Microprocessors</h3><div class="chip">From 1970s onward</div>
+        <p>The CPU was placed on a single chip, enabling personal computers and laptops.</p>
+        <div class="mini"><b>Key technology</b>VLSI — very-large-scale integration.</div>
+      </article>
+      <article class="card gen" style="--accent:#c44e83;--tint:#ffe8f1">
+        <div class="era">Fifth Generation</div><h3>AI & Parallel Processing</h3><div class="chip">Emerging / ongoing</div>
+        <p>Focuses on AI-based systems, parallel processing, and advanced chip integration.</p>
+        <div class="mini"><b>Key focus</b>ULSI and AI-oriented technologies.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div class="num">03</div><div><h2>At-a-glance comparison</h2><div class="sub">Learn this sequence for a quick exam answer.</div></div></div>
+    <div class="memory">
+      <div class="compare">
+        <h3>Hardware technology sequence</h3>
+        <div class="rowline"><span class="dot" style="background:#3568d4"></span><div><b>1st:</b> Vacuum tubes</div></div>
+        <div class="rowline"><span class="dot" style="background:#078a87"></span><div><b>2nd:</b> Transistors</div></div>
+        <div class="rowline"><span class="dot" style="background:#7652c8"></span><div><b>3rd:</b> Integrated circuits (ICs)</div></div>
+        <div class="rowline"><span class="dot" style="background:#d87925"></span><div><b>4th:</b> Microprocessors (VLSI)</div></div>
+        <div class="rowline"><span class="dot" style="background:#c44e83"></span><div><b>5th:</b> AI, parallel processing, ULSI</div></div>
+      </div>
+      <div class="compare">
+        <h3>Easy memory trick</h3>
+        <p style="color:var(--muted);margin-top:0">Say the hardware words in order:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span class="tag">Tube</span><span class="tag">Transistor</span><span class="tag">IC</span><span class="tag">Microprocessor</span><span class="tag">AI</span>
+        </div>
+        <p style="margin-top:15px;color:var(--muted)">General trend: hardware became more compact and powerful, while processing speed and reliability improved.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="exam">
+    <h2>Exam-ready answer</h2>
+    <p><strong>Four primary characteristics:</strong> (1) High speed, (2) Accuracy, (3) Diligence and reliability, and (4) Large storage capacity.</p>
+    <div class="answer">
+      <strong>Hardware technology of the five generations:</strong>
+      <p>First generation — Vacuum tubes</p>
+      <p>Second generation — Transistors</p>
+      <p>Third generation — Integrated circuits (ICs)</p>
+      <p>Fourth generation — Microprocessors, using VLSI technology</p>
+      <p>Fifth generation — Artificial intelligence (AI), parallel processing, and advanced ULSI-based hardware</p>
+    </div>
+    <p style="font-size:.83rem;margin-top:12px">Note: Dates and labels vary slightly across textbooks. The fifth generation is commonly described by its AI focus; it is not defined by one single hardware component alone.</p>
+  </section>
+  <footer>Study infographic • Computer Fundamentals • Use the print button to save or print this page.</footer>
+</div>
+</div>
+    </section>
+    
+    <section class="question-panel" id="panel-q2" role="tabpanel" aria-labelledby="tab-q2" hidden>
+      <div class="panel-heading"><span class="eyebrow">COMPUTER FUNDAMENTALS</span><h2>Question 2</h2></div>
+      <div class="source-content"><main class="page"><div class="toolbar"><button onclick="window.print()">Print / Save as PDF</button></div>
+<header><div class="eyebrow">Computer Fundamentals • Individual Question</div><h1>Q2. Functional Block Diagram of a Computer</h1><p>Explain how data, instructions, and control signals move between the CPU, memory unit, and I/O interface.</p></header>
+<section class="section">
+<div class="grid">
+<article class="card"><div class="icon b">🧠</div><h3>CPU — Central Processing Unit</h3><p>Executes instructions. The ALU performs arithmetic and logic; the Control Unit coordinates operations; registers hold immediate data and results.</p><span class="tag">Process + control</span></article>
+<article class="card"><div class="icon t">🗃️</div><h3>Memory Unit</h3><p>Stores programs, input data, intermediate values, and results. The CPU reads and writes memory using addresses and data signals.</p><span class="tag">Store + retrieve</span></article>
+<article class="card"><div class="icon p">🔌</div><h3>I/O Interface</h3><p>Connects peripheral devices to the computer and coordinates data transfer, device status, and control signals.</p><span class="tag">Peripheral communication</span></article>
+</div>
+<div class="panel" style="margin-top:14px"><h2>Functional data flow</h2><div class="flow"><div class="step">Input device<br><small>Keyboard / scanner</small></div><div class="arrow">→</div><div class="step">I/O interface<br><small>Buffer + status</small></div><div class="arrow">↔</div><div class="step">Main memory<br><small>Data + instructions</small></div><div class="arrow">↔</div><div class="step">CPU<br><small>Fetch, decode, execute</small></div><div class="arrow">→</div><div class="step">Output device<br><small>Display / printer</small></div></div><p>Control signals coordinate memory reads/writes and I/O operations. Address signals identify a location or device; data signals carry the actual information. Results may be stored in memory or sent to output.</p></div>
+<div class="grid two" style="margin-top:14px"><article class="card"><h3>Instruction cycle</h3><p><b>Fetch</b> instruction from memory → <b>Decode</b> it in the Control Unit → <b>Execute</b> using the ALU/registers or I/O → <b>Store</b> the result if required.</p></article><article class="card"><h3>Three signal types</h3><p><b>Data:</b> information transferred. <b>Address:</b> source or destination location. <b>Control:</b> operation to perform and when, such as read, write, or interrupt.</p></article></div>
+<div class="note"><b>Exam point:</b> The CPU is the processing and control centre; memory holds programs and data; the I/O interface connects external devices. All three work together during instruction execution.</div>
+</section>
+<section class="exam"><h2>Exam-ready summary</h2><div class="answer"><strong>Q2:</strong> CPU executes and controls; memory stores programs/data; I/O interfaces connect peripherals. Data carries information, addresses specify locations, and control signals coordinate reads, writes, and execution.</div></section>
+<footer>Computer Fundamentals • Q2 • Standalone infographic webpage</footer></main></div>
+    </section>
+    
+    <section class="question-panel" id="panel-q3" role="tabpanel" aria-labelledby="tab-q3" hidden>
+      <div class="panel-heading"><span class="eyebrow">COMPUTER FUNDAMENTALS</span><h2>Question 3</h2></div>
+      <div class="source-content"><main class="page"><div class="toolbar"><button onclick="window.print()">Print / Save as PDF</button></div>
+<header><div class="eyebrow">Computer Fundamentals • Individual Question</div><h1>Q3. Campus Attendance and Library Automation</h1><p>Demonstrate how optical scanners and electronic card readers can automate attendance and library checkouts.</p></header>
+<section class="section">
+<div class="grid">
+<article class="card"><div class="icon b">▦</div><h3>Barcode scanner</h3><p>Scans a student ID barcode at a classroom entrance or reads a book barcode at the library counter.</p><span class="tag">Fast optical reading</span></article>
+<article class="card"><div class="icon t">▤</div><h3>OMR scanner</h3><p>Reads marked bubbles on printed attendance sheets. Useful for batch attendance, provided forms are filled correctly.</p><span class="tag">Marked-form reading</span></article>
+<article class="card"><div class="icon p">📡</div><h3>RFID reader</h3><p>Reads a tagged student card or library book without direct line-of-sight, enabling quick contactless check-in and checkout.</p><span class="tag">Contactless reading</span></article>
+<article class="card"><div class="icon o">💳</div><h3>Smart card reader</h3><p>Reads a chip card by contact or contactless communication. Authentication can be stronger when paired with secure verification.</p><span class="tag">Chip-based ID</span></article>
+</div>
+<div class="compare" style="margin-top:14px"><div class="panel"><h2>Attendance workflow</h2><div class="flow"><div class="step">Student presents ID</div><div class="arrow">→</div><div class="step">Barcode / RFID reader</div><div class="arrow">→</div><div class="step">Attendance database</div><div class="arrow">→</div><div class="step">Teacher dashboard</div></div><p>Record student ID, date, time, and class. Timetable checks and duplicate-scan prevention improve accuracy.</p></div><div class="panel"><h2>Library checkout workflow</h2><div class="flow"><div class="step">Scan student card</div><div class="arrow">→</div><div class="step">Scan book ID</div><div class="arrow">→</div><div class="step">Update loan record</div><div class="arrow">→</div><div class="step">Due-date receipt</div></div><p>Returning the book closes the loan record and updates its availability.</p></div></div>
+<div class="note"><b>Safeguards:</b> protect student data, restrict staff access, keep audit logs, provide a manual fallback, and show confirmation after each scan. A card scan proves that a card was presented, not necessarily that its owner is holding it.</div>
+</section>
+<section class="exam"><h2>Exam-ready summary</h2><div class="answer"><strong>Q3:</strong> Barcode and OMR are optical scanning methods; RFID and smart cards are electronic identification methods. Readers send IDs to a database to record attendance or a library loan.</div></section>
+<footer>Computer Fundamentals • Q3 • Standalone infographic webpage</footer></main></div>
+    </section>
+    
+    <section class="question-panel" id="panel-q4" role="tabpanel" aria-labelledby="tab-q4" hidden>
+      <div class="panel-heading"><span class="eyebrow">COMPUTER FUNDAMENTALS</span><h2>Question 4</h2></div>
+      <div class="source-content"><main class="page"><div class="toolbar"><button onclick="window.print()">Print / Save as PDF</button></div>
+<header><div class="eyebrow">Computer Fundamentals • Individual Question</div><h1>Q4. Low-Level vs High-Level Languages</h1><p>Distinguish machine language, assembly language, and high-level languages by speed, hardware dependence, translation, and complexity.</p></header>
+<section class="section">
+<div class="tablewrap"><table><thead><tr><th>Feature</th><th>Machine language</th><th>Assembly language</th><th>High-level language</th></tr></thead><tbody>
+<tr><td>Representation</td><td>Binary bits (0s and 1s)</td><td>Mnemonics such as MOV and ADD</td><td>Readable statements, e.g. Python, C, Java</td></tr>
+<tr><td>Execution speed</td><td>Directly executed by the CPU</td><td>Assembled to machine code; can be efficient</td><td>Depends on language and implementation; compiled code can be very fast</td></tr>
+<tr><td>Hardware dependence</td><td>Very high; processor-specific</td><td>High; tied to processor instruction set</td><td>Generally lower; often portable with a suitable compiler/runtime</td></tr>
+<tr><td>Translation required</td><td>No source translator for machine code itself</td><td>Assembler converts it into machine code</td><td>Compiler or interpreter translates/runs it; some systems use both</td></tr>
+<tr><td>Complexity</td><td>Very difficult to write and debug</td><td>Requires hardware knowledge</td><td>Usually easier to read, write, maintain, and debug</td></tr>
+<tr><td>Typical use</td><td>Processor-level instructions</td><td>Drivers, embedded routines, critical low-level code</td><td>Apps, websites, data analysis, general software</td></tr>
+</tbody></table></div>
+<div class="grid two" style="margin-top:14px"><article class="card"><div class="icon o">⚙️</div><h3>Low-level languages</h3><p>Close to the hardware and give detailed control, but are harder to write and less portable.</p></article><article class="card"><div class="icon t">💻</div><h3>High-level languages</h3><p>Use human-readable constructs and make development easier, though performance depends on the compiler/runtime and task.</p></article></div>
+<div class="note"><b>Remember:</b> Machine = binary; Assembly = mnemonics; High-level = human-readable code. “Low-level is always faster” is too broad: actual performance depends on implementation and program design.</div>
+</section>
+<section class="exam"><h2>Exam-ready summary</h2><div class="answer"><strong>Q4:</strong> Machine language uses binary; assembly uses mnemonics and an assembler; high-level languages use more human-readable statements and a compiler/interpreter. Low-level languages are more hardware-dependent; high-level languages are generally easier and more portable.</div></section>
+<footer>Computer Fundamentals • Q4 • Standalone infographic webpage</footer></main></div>
+    </section>
+    
+    <section class="question-panel" id="panel-q5" role="tabpanel" aria-labelledby="tab-q5" hidden>
+      <div class="panel-heading"><span class="eyebrow">COMPUTER FUNDAMENTALS</span><h2>Question 5</h2></div>
+      <div class="source-content"><main class="page"><div class="toolbar"><button onclick="window.print()">Print / Save as PDF</button></div>
+<header><div class="eyebrow">Computer Fundamentals • Individual Question</div><h1>Q5. Point-and-Draw Devices vs Graphics Tablets</h1><p>Compare mouse/trackball devices with graphics digitizers or drawing tablets for coordinate tracking and pressure sensitivity.</p></header>
+<section class="section">
+<div class="compare">
+<div class="panel"><div class="icon b">🖱️</div><h2>Mouse and trackball</h2>
+<div class="line"><span class="bullet"></span><div><b>Coordinate tracking</b><p>Usually relative movement: the pointer moves based on device motion. A trackball stays still while the user rotates its ball.</p></div></div>
+<div class="line"><span class="bullet"></span><div><b>Pressure sensitivity</b><p>Usually no pen-pressure sensing; buttons and scroll wheel provide selection and navigation.</p></div></div>
+<div class="line"><span class="bullet"></span><div><b>Best applications</b><p>Menus, object selection, general computer use, and many CAD operations.</p></div></div></div>
+<div class="panel"><div class="icon p">✍️</div><h2>Graphics tablet / digitizer</h2>
+<div class="line"><span class="bullet" style="background:var(--purple)"></span><div><b>Coordinate tracking</b><p>Maps pen position on the tablet to a corresponding screen or drawing coordinate; many tablets use absolute positioning.</p></div></div>
+<div class="line"><span class="bullet" style="background:var(--purple)"></span><div><b>Pressure sensitivity</b><p>A pressure-sensitive stylus can vary line width, opacity, or brush response. Some devices also detect tilt.</p></div></div>
+<div class="line"><span class="bullet" style="background:var(--purple)"></span><div><b>Best applications</b><p>Digital illustration, handwriting, tracing, and precise freehand input; also useful for CAD markup.</p></div></div></div>
+</div>
+<div class="grid two" style="margin-top:14px"><article class="card"><h3>For CAD</h3><p>A mouse is practical for precise clicking, menus, and selecting objects. A tablet can be useful for sketching and annotation.</p></article><article class="card"><h3>For digital art</h3><p>A graphics tablet is usually better for natural strokes because supported pens can respond to pressure and sometimes tilt.</p></article></div>
+<div class="note"><b>Important:</b> not every digitizer supports pressure sensitivity, and the exact tracking method depends on the device and software.</div>
+</section>
+<section class="exam"><h2>Exam-ready summary</h2><div class="answer"><strong>Q5:</strong> Mouse and trackball typically control a relative pointer and usually lack pressure sensing. A graphics tablet maps pen position to drawing coordinates and may support pressure or tilt, making it especially useful for digital art.</div></section>
+<footer>Computer Fundamentals • Q5 • Standalone infographic webpage</footer></main></div>
+    </section>
+    
+    <section class="question-panel" id="panel-q6" role="tabpanel" aria-labelledby="tab-q6" hidden>
+      <div class="panel-heading"><span class="eyebrow">COMPUTER FUNDAMENTALS</span><h2>Question 6</h2></div>
+      <div class="source-content"><main class="page"><div class="toolbar"><button onclick="window.print()">Print / Save as PDF</button></div>
+<header><div class="eyebrow">Computer Fundamentals • Individual Question</div><h1>Q6. Choosing Equipment for Civil Engineering Blueprints</h1><p>Assess a traditional drum/flatbed plotter against a UHD monitor plus large-format printer.</p></header>
+<section class="section">
+<div class="compare">
+<div class="panel"><div class="icon t">📐</div><h2>Drum / flatbed plotter</h2><p>Traditional pen plotters draw vector lines. Flatbed machines hold the sheet still; drum plotters move paper around a drum. They can make precise line drawings but may be slower and require specialized maintenance.</p><span class="tag">Specialized vector workflows</span></div>
+<div class="panel"><div class="icon b">🖨️</div><h2>UHD monitor + large-format printer</h2><p>A high-resolution monitor helps inspect fine detail; the printer produces physical plans. Modern wide-format printers handle vector lines, text, fills, and raster images.</p><span class="tag">Versatile modern workflow</span></div>
+</div>
+<div class="tablewrap" style="margin-top:14px"><table><thead><tr><th>Criterion</th><th>Traditional plotter</th><th>Monitor + large-format printer</th></tr></thead><tbody>
+<tr><td>Line resolution</td><td>Precise pen-drawn vectors; depends on pen and medium</td><td>Can produce crisp lines at suitable resolution with correct calibration, paper, and vector settings</td></tr>
+<tr><td>Scalability</td><td>Limited by machine bed/roll width and mechanics</td><td>Digital plans scale readily; final print size depends on printer width and media</td></tr>
+<tr><td>Content types</td><td>Best for line drawings</td><td>Handles lines, text, shading, images, and colour layers</td></tr>
+<tr><td>Long-term cost</td><td>May involve specialist maintenance and consumables</td><td>Versatile and often easier to integrate; ink/toner, media, calibration, and maintenance remain ongoing costs</td></tr>
+</tbody></table></div>
+<div class="note"><b>Recommendation:</b> for most modern civil engineering offices, choose a calibrated high-resolution monitor with a professional large-format printer. It is more versatile for CAD and mixed-content plans. Confirm required line widths, print scale, archival media, and total cost per sheet before purchasing.</div>
+</section>
+<section class="exam"><h2>Exam-ready summary</h2><div class="answer"><strong>Q6:</strong> For most modern civil engineering offices, a high-resolution monitor plus a professional large-format printer is more versatile and integrates well with CAD workflows. Actual line quality and lifetime cost depend on the printer, media, maintenance, and production volume.</div></section>
+<footer>Computer Fundamentals • Q6 • Standalone infographic webpage</footer></main></div>
+    </section>
+    
+    <section class="question-panel" id="panel-q7" role="tabpanel" aria-labelledby="tab-q7" hidden>
+      <div class="panel-heading"><span class="eyebrow">COMPUTER FUNDAMENTALS</span><h2>Question 7</h2></div>
+      <div class="source-content"><main class="page"><div class="toolbar"><button onclick="window.print()">Print / Save as PDF</button></div>
+<header><div class="eyebrow">Computer Fundamentals • Individual Question</div><h1>Q7. Facial Recognition vs Voice Recognition</h1><p>Critique biometric reliability and security in high-noise, publicly exposed environments.</p></header>
+<section class="section">
+<div class="compare">
+<div class="panel"><div class="icon b">👁️</div><h2>Facial recognition</h2>
+<div class="line"><span class="bullet"></span><div><b>Reliability</b><p>Unaffected by ambient sound, but can fail with poor lighting, camera angle, occlusion, image quality, or appearance changes.</p></div></div>
+<div class="line"><span class="bullet"></span><div><b>Security risks</b><p>Photos, video, or masks may fool weak systems. Public deployment also raises surveillance and privacy concerns.</p></div></div>
+<div class="line"><span class="bullet"></span><div><b>Mitigations</b><p>Liveness and presentation-attack detection; test false acceptance/rejection across different users and conditions.</p></div></div></div>
+<div class="panel"><div class="icon p">🎙️</div><h2>Voice recognition</h2>
+<div class="line"><span class="bullet" style="background:var(--purple)"></span><div><b>Reliability</b><p>Ambient noise, distance, echo, illness, and microphone quality can reduce accuracy.</p></div></div>
+<div class="line"><span class="bullet" style="background:var(--purple)"></span><div><b>Security risks</b><p>Recordings, replay attacks, voice cloning, and synthetic speech can compromise weak systems.</p></div></div>
+<div class="line"><span class="bullet" style="background:var(--purple)"></span><div><b>Mitigations</b><p>Noise suppression and anti-spoofing help, but public speech may expose biometric data to bystanders.</p></div></div></div>
+</div>
+<div class="note"><b>Assessment:</b> neither biometric is infallible. In a noisy public space, voice recognition is especially affected by acoustic conditions; facial recognition avoids sound problems but still has lighting, spoofing, bias, and privacy risks. Prefer multi-factor authentication such as a secure card plus PIN, encryption, limited data retention, human review, and a non-biometric alternative.</div>
+</section>
+<section class="exam"><h2>Exam-ready summary</h2><div class="answer"><strong>Q7:</strong> Voice recognition is especially vulnerable to noise; facial recognition is not noise-sensitive but can be affected by lighting, spoofing, bias, and privacy issues. Neither should be the sole security layer in an exposed public environment.</div></section>
+<footer>Computer Fundamentals • Q7 • Standalone infographic webpage</footer></main></div>
+    </section>
+    
+    <section class="question-panel" id="panel-q8" role="tabpanel" aria-labelledby="tab-q8" hidden>
+      <div class="panel-heading"><span class="eyebrow">COMPUTER FUNDAMENTALS</span><h2>Question 8</h2></div>
+      <div class="source-content"><main class="page"><div class="toolbar"><button onclick="window.print()">Print / Save as PDF</button></div>
+<header><div class="eyebrow">Computer Fundamentals • Individual Question</div><h1>Q8. Accessible Hands-Free Computer Workstation</h1><p>Design a workstation for a visually impaired user using non-visual input and specialized output devices.</p></header>
+<section class="section">
+<div class="grid">
+<article class="card"><div class="icon b">🎤</div><h3>Voice input</h3><p>A noise-cancelling headset microphone and speech-recognition software support dictation, commands, searching, and hands-free navigation.</p><span class="tag">Primary hands-free control</span></article>
+<article class="card"><div class="icon t">⌨️</div><h3>Tactile keyboard</h3><p>A keyboard with raised home-row markers or braille labels supports touch typing when hands are available.</p><span class="tag">Tactile backup</span></article>
+<article class="card"><div class="icon p">🔊</div><h3>Screen reader + speech</h3><p>Screen-reader software announces menus, text, focus, errors, and status updates through a voice synthesizer and headphones.</p><span class="tag">Non-visual feedback</span></article>
+<article class="card"><div class="icon o">⠿</div><h3>Refreshable Braille display</h3><p>Optional tactile output presents on-screen text as Braille cells, useful for quiet work and accurate spelling or punctuation.</p><span class="tag">Tactile output</span></article>
+<article class="card"><div class="icon r">🧭</div><h3>Accessible software</h3><p>Use keyboard-accessible apps, labelled controls, clear focus order, shortcuts, accessible documents, and optional magnification/high contrast.</p><span class="tag">Compatibility matters</span></article>
+<article class="card"><div class="icon b">🛡️</div><h3>Privacy and safety</h3><p>Provide a physical mute button, confirmation before sending or deleting, secure sign-in, private audio, and adjustable speech rate/volume.</p><span class="tag">User control</span></article>
+</div>
+<div class="panel" style="margin-top:14px"><h2>How components work together</h2><div class="flow"><div class="step">User speaks command</div><div class="arrow">→</div><div class="step">Speech recognition</div><div class="arrow">→</div><div class="step">Computer performs task</div><div class="arrow">→</div><div class="step">Screen reader speaks feedback</div></div><div class="flow"><div class="step">Keyboard / Braille input</div><div class="arrow">↔</div><div class="step">Accessible operating system</div><div class="arrow">↔</div><div class="step">Speech synthesizer / Braille display</div></div><p>Speech is the primary input for hands-free use; tactile keyboard and Braille provide complementary alternatives when speech is inconvenient or inaccurate. Test the setup with the user and tailor it to their vision, hearing, motor access, language, and preferences.</p></div>
+<div class="note"><b>Design principle:</b> accessibility should be customizable. Keep essential functions operable without a mouse or visual confirmation, and offer a non-voice alternative for noisy or private situations.</div>
+</section>
+<section class="exam"><h2>Exam-ready summary</h2><div class="answer"><strong>Q8:</strong> Use speech recognition as the main hands-free input, with screen-reader speech output for feedback. A tactile keyboard and optional refreshable Braille display provide complementary access, supported by accessible software, privacy controls, and user-specific setup.</div></section>
+<footer>Computer Fundamentals • Q8 • Standalone infographic webpage</footer></main></div>
+    </section>
+    
+  </main>
+  <footer>Prepared for Gouri Jain · Roll No. 1826025 · BPT (1st year)</footer>
+</div>
+<script>
+(function(){
+  const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+  const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+  function activate(tab, focus){
+    tabs.forEach(t=>{const selected=t===tab;t.setAttribute('aria-selected',selected?'true':'false');t.tabIndex=selected?0:-1;});
+    panels.forEach(p=>p.hidden=p.id!==tab.dataset.target);
+    if(focus) tab.focus();
+    try{history.replaceState(null,'','#'+tab.dataset.target);}catch(e){}
+  }
+  tabs.forEach((tab,index)=>{
+    tab.addEventListener('click',()=>activate(tab,false));
+    tab.addEventListener('keydown',e=>{
+      let next=null;
+      if(e.key==='ArrowRight')next=(index+1)%tabs.length;
+      if(e.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;
+      if(e.key==='Home')next=0;
+      if(e.key==='End')next=tabs.length-1;
+      if(next!==null){e.preventDefault();activate(tabs[next],true);}
+    });
+  });
+  const initial=tabs.find(t=>t.dataset.target===location.hash.slice(1));
+  if(initial)activate(initial,false);
+})();
+</script>
+</body>
+</html>
